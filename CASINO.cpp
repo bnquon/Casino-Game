@@ -330,15 +330,15 @@ int playSlots(Player& player1)
         } else {
             // This means user did win and balance is updated 
             player1.setBalance(player1.getBalance() + (winMultiplier*betAmount));
-            cout << "***You won " << winMultiplier << "lines!***" << endl
+            cout << "***You won " << winMultiplier << " line(s)!***" << endl
                  << "Your new balance: $" << player1.getBalance();
         }
         // Ask if they want to spin again
         string choice;
-        cout << "Would you like to play again ('Y'/'N'): ";
+        cout << endl << "Would you like to play again ('Y'/'N'): ";
         cin >> choice;
         // Exit loop
-        if (choice == "N"){
+        if (choice == "N" || player1.getBalance() <= 0){
             playing = false;
         }
     }
@@ -377,7 +377,7 @@ int main()
     // Creating player
     Player player1;
     string inputUsername;
-    cout << "---Welcome to Brandon's casino where the odds are in your favour (not really)---" 
+    cout << endl << "---Welcome to Brandon's casino where the odds are in your favour (not really)---" 
          << endl << "Enter your username: ";
     // Setting username
     cin >> inputUsername;
